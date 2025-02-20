@@ -23,7 +23,8 @@ class Elianna:
         self.alienbabble = {
             "describe_planet_intent": r".*\s*your planet.*",
             "answer_why_intent": r"why\sare.*",
-            "about_intellipat": r".*\s*intellipaat.*"
+            "about_Elianna": r".*\s*Elianna.*",
+            "about_session" : r".*\s*session.*"
         }
 
     def greet(self):
@@ -58,8 +59,10 @@ class Elianna:
                     return self.describe_planet_intent()
                 elif intent == "answer_why_intent":
                     return self.answer_why_intent()
-                elif intent == "about_intellipat":
-                    return self.about_intellipat()
+                elif intent == "about_Elianna":
+                    return self.about_Elianna()
+                elif intent == "about_session":
+                    return self.about_session()
         
         return self.no_match_intent()
 
@@ -78,8 +81,18 @@ class Elianna:
         )
         return random.choice(responses)
 
-    def about_intellipat(self):
+    def about_Elianna(self):
+        responses = (
+            "Elianna is a chatbot.",
+            "Help Pepole to learning"
+        )
         return "Elianna is a chatbot."
+
+    def about_session(self):
+        responses = (
+            "Session is on 20 february 2024\n", "Session was cool"
+        )
+        return random.choice(responses)
 
     def no_match_intent(self):
         responses = (
