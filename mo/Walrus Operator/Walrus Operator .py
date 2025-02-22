@@ -1,6 +1,6 @@
-a = True
-print(a:=False)
-
-number = [3, 4, 8, 9, 5 ]
-while (n := len(number)) > 0:
-    print(number.pop())
+foods = list()
+while True:
+    food = input("What food do you like?: ")
+    if food == "Quit":
+        break
+    foods.append(food)
