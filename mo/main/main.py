@@ -1,14 +1,15 @@
-import functools
-import time
+import requests
+import json
 
-@functools.lru_cache(maxsize=None)
-def fx(n):
-    time.sleep(5)
-    return n*5
+query = input("What type of news are you interested in?")
+url = f"https://newsapi.org/v2/everything?q={query}tesla&from=2025-01-23&sortBy=publishedAt&apiKey=034d2f29c72a4b67a732701eb17a736e"
 
-print(fx(20))
-print("Green")
-print(fx(2))
-print("Yellow")
-print(fx(6))
-print("Red")
+r = requests.get(url)
+news = json.loads(r.text)
+#print(news, type(news))
+for article in news["articles"]:
+    print(article["title"])
+    print(article["description"])
+    print(article["content"])
+    print("------------------")
+    
