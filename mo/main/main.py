@@ -1,11 +1,14 @@
-import requests 
-from bs4 import BeautifulSoup
+import functools
+import time
 
-url = "https://newsapi.org/"
+@functools.lru_cache(maxsize=None)
+def fx(n):
+    time.sleep(5)
+    return n*5
 
-r = requests.get(url)
-
-soup = BeautifulSoup(r.text, "html.parser")
-
-print(soup.prettify())
-
+print(fx(20))
+print("Green")
+print(fx(2))
+print("Yellow")
+print(fx(6))
+print("Red")
